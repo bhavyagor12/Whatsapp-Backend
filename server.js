@@ -1,4 +1,4 @@
-// 
+
 import express from 'express'
 import mongoose from 'mongoose'
 import Messages from './dbMessages.js'
@@ -9,7 +9,8 @@ const port=process.env.PORT || 9000
 //middlerware
 app.use(express.json())
 //db 
-const connection_url ='mongodb+srv://admin:<hh3RxW4DPJWD3Rfg>@cluster0.nnfaw.mongodb.net/whatsappdb?retryWrites=true&w=majority'
+
+const connection_url = config.CONNECTION_URL;
 mongoose.connect(connection_url,{
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -34,5 +35,3 @@ app.post('/messages/new',(req,res)=>{
 app.listen(port,()=>console.log(`Listening on port number:${port}`))
 
 
-//hh3RxW4DPJWD3Rfg  -- password
-//mongodb+srv://admin:<hh3RxW4DPJWD3Rfg>@cluster0.nnfaw.mongodb.net/whatsappdb?retryWrites=true&w=majority
